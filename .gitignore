@@ -1,0 +1,7 @@
+node_modules/
+dist/
+packages/foxtone/src/generated/
+.superpowers/
+*.local
+*.log
+.DS_Store

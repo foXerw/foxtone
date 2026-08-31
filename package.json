@@ -1,0 +1,10 @@
+{
+  "name": "foxtone-workspace",
+  "private": true,
+  "packageManager": "pnpm@10.18.0",
+  "scripts": {
+    "build": "pnpm -r build",
+    "test": "pnpm -r test",
+    "dev": "pnpm --filter foxtone build && pnpm --filter playground dev"
+  }
+}
