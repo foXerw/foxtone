@@ -1,0 +1,78 @@
+/* playground 自身完全由 foxtone 令牌驱动 */
+body {
+  margin: 0;
+  background: var(--fox-color-bg-canvas);
+  color: var(--fox-color-fg-default);
+  font-family: var(--fox-font-family-sans);
+  line-height: var(--fox-font-line-height-base);
+  transition:
+    background var(--fox-motion-duration-base) var(--fox-motion-easing-ease-out),
+    color var(--fox-motion-duration-base) var(--fox-motion-easing-ease-out);
+}
+
+/* 顶栏 */
+.toolbar {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: var(--fox-space-3) var(--fox-space-6);
+  background: var(--fox-color-bg-surface);
+  border-bottom: 1px solid var(--fox-color-border-default);
+}
+.toolbar-logo {
+  font-weight: var(--fox-font-weight-bold);
+  font-size: var(--fox-font-size-4);
+}
+.toolbar-controls {
+  display: flex;
+  gap: var(--fox-space-4);
+  align-items: center;
+}
+.toolbar-controls label {
+  display: flex;
+  gap: var(--fox-space-2);
+  align-items: center;
+  color: var(--fox-color-fg-muted);
+  font-size: var(--fox-font-size-2);
+}
+select,
+.btn {
+  font: inherit;
+  padding: var(--fox-space-1) var(--fox-space-2);
+  border-radius: var(--fox-radius-md);
+  border: 1px solid var(--fox-color-border-default);
+  background: var(--fox-color-bg-raised);
+  color: var(--fox-color-fg-default);
+  cursor: pointer;
+}
+
+/* 布局 */
+.content {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: var(--fox-space-6);
+  display: flex;
+  flex-direction: column;
+  gap: var(--fox-space-8);
+}
+.section {
+  background: var(--fox-color-bg-surface);
+  border: 1px solid var(--fox-color-border-default);
+  border-radius: var(--fox-radius-lg);
+  padding: var(--fox-space-6);
+  box-shadow: var(--fox-shadow-sm);
+}
+.section h2 { margin-top: 0; }
+.hint {
+  color: var(--fox-color-fg-muted);
+  font-size: var(--fox-font-size-2);
+}
+.footer {
+  text-align: center;
+  padding: var(--fox-space-6);
+  color: var(--fox-color-fg-subtle);
+  font-size: var(--fox-font-size-2);
+}
