@@ -1,6 +1,10 @@
 import { useEffect, useState } from 'react';
 import { setTheme, type BrandName, type Mode } from 'foxtone';
 import { Toolbar } from './components/Toolbar';
+import { ColorGallery } from './components/ColorGallery';
+import { ScalesGallery } from './components/ScalesGallery';
+import { ThemeLab } from './components/ThemeLab';
+import { QuickStart } from './components/QuickStart';
 
 export default function App() {
   const [brand, setBrand] = useState<BrandName>('foxtone');
@@ -36,13 +40,10 @@ export default function App() {
         onFollowSystemChange={setFollowSystem}
       />
       <main className="content">
-        <section className="section">
-          <h2>foxtone 🦊</h2>
-          <p className="hint">
-            本页样式完全由 foxtone 设计令牌驱动。用右上角切换品牌与亮暗模式，
-            后续任务将在这里加入令牌画廊与自定义主题实验室。
-          </p>
-        </section>
+        <ColorGallery themeKey={`${brand}-${resolvedMode}`} />
+        <ScalesGallery />
+        <ThemeLab />
+        <QuickStart />
       </main>
       <footer className="footer">foxtone · 设计令牌系统</footer>
     </div>

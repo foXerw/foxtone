@@ -76,3 +76,153 @@ select,
   color: var(--fox-color-fg-subtle);
   font-size: var(--fox-font-size-2);
 }
+
+/* 通用 */
+.btn {
+  background: var(--fox-color-brand-bg);
+  color: var(--fox-color-brand-fg);
+  border: none;
+  transition: background var(--fox-motion-duration-fast) var(--fox-motion-easing-ease-out);
+}
+.btn:hover { background: var(--fox-color-brand-hover); }
+.btn:active { background: var(--fox-color-brand-active); }
+.btn-secondary {
+  background: var(--fox-color-bg-raised);
+  color: var(--fox-color-fg-default);
+  border: 1px solid var(--fox-color-border-default);
+}
+input[type='color'] {
+  width: 48px;
+  height: 32px;
+  padding: 0;
+  border: 1px solid var(--fox-color-border-default);
+  border-radius: var(--fox-radius-md);
+  background: var(--fox-color-bg-raised);
+  cursor: pointer;
+}
+.code-block {
+  background: var(--fox-color-bg-raised);
+  border: 1px solid var(--fox-color-border-default);
+  border-radius: var(--fox-radius-md);
+  padding: var(--fox-space-4);
+  overflow-x: auto;
+  font-family: var(--fox-font-family-mono);
+  font-size: var(--fox-font-size-2);
+}
+
+/* 色卡画廊 */
+.swatch-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: var(--fox-space-3);
+}
+.swatch-card {
+  display: flex;
+  gap: var(--fox-space-3);
+  align-items: center;
+  border: 1px solid var(--fox-color-border-default);
+  border-radius: var(--fox-radius-md);
+  padding: var(--fox-space-2);
+}
+.swatch {
+  width: 48px;
+  height: 48px;
+  border-radius: var(--fox-radius-md);
+  border: 1px solid var(--fox-color-border-default);
+  flex: none;
+}
+.swatch-meta {
+  display: flex;
+  flex-direction: column;
+  gap: var(--fox-space-1);
+  font-size: var(--fox-font-size-1);
+}
+.swatch-value { color: var(--fox-color-fg-subtle); }
+
+/* 色板行 */
+.palette-row {
+  display: flex;
+  gap: 2px;
+  align-items: center;
+  margin: var(--fox-space-2) 0;
+  flex-wrap: wrap;
+}
+.palette-name {
+  width: 64px;
+  color: var(--fox-color-fg-muted);
+  font-size: var(--fox-font-size-1);
+}
+.palette-step {
+  flex: 1;
+  min-width: 40px;
+  text-align: center;
+  font-size: 10px;
+  padding: var(--fox-space-2) 0;
+  color: rgba(255, 255, 255, 0.9);
+  text-shadow: 0 0 4px rgba(0, 0, 0, 0.5);
+}
+
+/* 刻度展示 */
+.scale-list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--fox-space-1);
+}
+.scale-row {
+  display: flex;
+  align-items: center;
+  gap: var(--fox-space-3);
+}
+.scale-row code {
+  width: 72px;
+  flex: none;
+  font-size: var(--fox-font-size-1);
+  color: var(--fox-color-fg-muted);
+}
+.space-bar {
+  height: 12px;
+  background: var(--fox-color-brand-bg);
+  border-radius: var(--fox-radius-sm);
+}
+.card-grid {
+  display: flex;
+  gap: var(--fox-space-4);
+  flex-wrap: wrap;
+}
+.demo-card {
+  width: 96px;
+  height: 96px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--fox-color-bg-raised);
+  border: 1px solid var(--fox-color-border-default);
+  font-size: var(--fox-font-size-1);
+  color: var(--fox-color-fg-muted);
+  text-align: center;
+}
+.motion-row {
+  display: flex;
+  gap: var(--fox-space-6);
+}
+.motion-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--fox-space-2);
+}
+.motion-dot {
+  width: 20px;
+  height: 20px;
+  border-radius: var(--fox-radius-full);
+  background: var(--fox-color-brand-bg);
+  transition-property: transform;
+  transition-timing-function: var(--fox-motion-easing-ease-out);
+}
+.motion-dot:hover { transform: translateX(var(--fox-space-8)); }
+.lab-controls {
+  display: flex;
+  gap: var(--fox-space-3);
+  align-items: center;
+  margin-bottom: var(--fox-space-4);
+}
