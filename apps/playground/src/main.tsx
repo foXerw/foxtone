@@ -6,10 +6,13 @@ import 'foxtone/css/themes/foxtone-dark.css';
 import 'foxtone/css/themes/ocean-light.css';
 import 'foxtone/css/themes/ocean-dark.css';
 import './styles.css';
+import { FoxThemeProvider } from 'foxtone-react';
 import App from './App';
 
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
-    <App />
+    <FoxThemeProvider storageKey="foxtone-playground">
+      <App />
+    </FoxThemeProvider>
   </StrictMode>,
 );

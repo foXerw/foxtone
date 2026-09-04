@@ -1,22 +1,14 @@
-import { brandNames, modes, type BrandName, type Mode } from 'foxtone';
+import { brandNames, modes, useTheme, type BrandName, type Mode } from 'foxtone-react';
 
-interface Props {
-  brand: BrandName;
-  mode: Mode;
-  followSystem: boolean;
-  onBrandChange: (brand: BrandName) => void;
-  onModeChange: (mode: Mode) => void;
-  onFollowSystemChange: (follow: boolean) => void;
-}
-
-export function Toolbar({ brand, mode, followSystem, onBrandChange, onModeChange, onFollowSystemChange }: Props) {
+export function Toolbar() {
+  const { brand, mode, followSystem, setBrand, setMode, setFollowSystem } = useTheme();
   return (
     <header className="toolbar">
       <span className="toolbar-logo">🦊 foxtone</span>
       <div className="toolbar-controls">
         <label>
           品牌
-          <select value={brand} onChange={(e) => onBrandChange(e.target.value as BrandName)}>
+          <select value={brand} onChange={(e) => setBrand(e.target.value as BrandName)}>
             {brandNames.map((b) => (
               <option key={b} value={b}>{b}</option>
             ))}
@@ -24,7 +16,7 @@ export function Toolbar({ brand, mode, followSystem, onBrandChange, onModeChange
         </label>
         <label>
           模式
-          <select value={mode} disabled={followSystem} onChange={(e) => onModeChange(e.target.value as Mode)}>
+          <select value={mode} disabled={followSystem} onChange={(e) => setMode(e.target.value as Mode)}>
             {modes.map((m) => (
               <option key={m} value={m}>{m === 'light' ? '亮色' : '暗色'}</option>
             ))}
@@ -34,7 +26,7 @@ export function Toolbar({ brand, mode, followSystem, onBrandChange, onModeChange
           <input
             type="checkbox"
             checked={followSystem}
-            onChange={(e) => onFollowSystemChange(e.target.checked)}
+            onChange={(e) => setFollowSystem(e.target.checked)}
           />
           跟随系统
         </label>

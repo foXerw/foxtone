@@ -1,25 +1,15 @@
-import { useEffect, useState } from 'react';
-import { semanticColorTokens } from 'foxtone';
+import { semanticColorTokens, useTokenValue } from 'foxtone-react';
 import tokensJson from 'foxtone/tokens.json';
 
 const PALETTES = ['orange', 'gray', 'green', 'amber', 'red', 'sky'] as const;
 
-/** 实时读取某个 --fox-* 变量的当前计算值 */
-function readVar(name: string): string {
-  return getComputedStyle(document.documentElement).getPropertyValue(`--fox-${name}`).trim();
+/** 单个色卡的取值列：用 useTokenValue 实时读取 */
+function SwatchValue({ name }: { name: string }) {
+  const value = useTokenValue(name);
+  return <span className="swatch-value">{value || '…'}</span>;
 }
 
 export function ColorGallery({ themeKey }: { themeKey: string }) {
-  const [values, setValues] = useState<Record<string, string>>({});
-
-  // 主题切换后下一帧重新取样，保证数值与色块同步
-  useEffect(() => {
-    const id = requestAnimationFrame(() => {
-      setValues(Object.fromEntries(semanticColorTokens.map((name) => [name, readVar(name)])));
-    });
-    return () => cancelAnimationFrame(id);
-  }, [themeKey]);
-
   return (
     <section className="section">
       <h2>语义色彩</h2>
@@ -32,7 +22,7 @@ export function ColorGallery({ themeKey }: { themeKey: string }) {
             <div className="swatch" style={{ background: `var(--fox-${name})` }} />
             <div className="swatch-meta">
               <code>{name}</code>
-              <span className="swatch-value">{values[name] ?? '…'}</span>
+              <SwatchValue name={name} />
             </div>
           </div>
         ))}

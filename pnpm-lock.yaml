@@ -13,6 +13,9 @@ importers:
       foxtone:
         specifier: workspace:*
         version: link:../../packages/foxtone
+      foxtone-react:
+        specifier: workspace:*
+        version: link:../../packages/foxtone-react
       react:
         specifier: ^19.1.0
         version: 19.2.8

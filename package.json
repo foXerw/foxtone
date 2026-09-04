@@ -5,6 +5,6 @@
   "scripts": {
     "build": "pnpm -r build",
     "test": "pnpm -r test",
-    "dev": "pnpm --filter foxtone build && pnpm --filter playground dev"
+    "dev": "pnpm --filter foxtone build && pnpm --filter foxtone-react build && pnpm --filter playground dev"
   }
 }
