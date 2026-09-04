@@ -1,2 +1,2 @@
-/** foxtone-react 版本号 */
-export const VERSION = '0.1.0';
+export { FoxThemeProvider, type ThemeController } from './provider.js';
+export { useTheme } from './useTheme.js';
