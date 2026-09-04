@@ -12,6 +12,7 @@
 - 🎛️ **用户自定义**：`applyOverrides` 运行时覆盖 + `paletteFromColor` 从单色派生整套色阶
 - ⚛️ **TypeScript 优先**：主题名、令牌名全部类型化，拼错即报错
 - 🖼️ **在线画廊**：[foxtone demo 站](https://foxerw.github.io/foxtone/)（令牌可视化 + 主题切换 + 自定义实验室）
+- 🧩 **React 绑定**：[`foxtone-react`](packages/foxtone-react)（`<FoxThemeProvider>` + `useTheme`/`useTokens`/`useTokenValue`，含主题持久化）
 
 ## 安装
 
@@ -82,6 +83,7 @@ pnpm dev            # 构建令牌后启动 playground 开发服务器
 
 ```
 packages/foxtone    核心包（tokens/ 令牌源 · build/ 构建脚本 · src/ 运行时 API）
+packages/foxtone-react  React 绑定包（Provider + hooks，peer 依赖 foxtone 与 react）
 apps/playground     demo 站（Vite + React，自身样式完全消费令牌）
 ```
 
