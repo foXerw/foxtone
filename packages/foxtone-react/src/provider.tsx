@@ -6,11 +6,12 @@ import {
   useState,
   type ReactNode,
 } from 'react';
-import { setTheme, type BrandName, type Mode, type ThemeName } from 'foxtone';
+import { setTheme, brandNames, modes, type BrandName, type Mode, type ThemeName } from 'foxtone';
 
 /** useTheme 返回的主题控制器 */
 export interface ThemeController {
   brand: BrandName;
+  /** 生效模式：跟随系统时由 systemDark 决定，否则为手动选择的模式 */
   mode: Mode;
   followSystem: boolean;
   systemDark: boolean;
@@ -32,7 +33,7 @@ interface FoxThemeProviderProps {
   children: ReactNode;
 }
 
-/** 从 localStorage 读取已存主题状态；失败（隐私模式/损坏）返回 null */
+/** 从 localStorage 读取已存主题状态；校验字段合法性，非法值回退 undefined（由调用方走默认值） */
 function loadStored(key: string): {
   brand?: BrandName;
   mode?: Mode;
@@ -41,7 +42,13 @@ function loadStored(key: string): {
   if (typeof window === 'undefined') return null;
   try {
     const raw = window.localStorage.getItem(key);
-    return raw ? (JSON.parse(raw) as { brand?: BrandName; mode?: Mode; followSystem?: boolean }) : null;
+    if (!raw) return null;
+    const parsed = JSON.parse(raw) as { brand?: unknown; mode?: unknown; followSystem?: unknown };
+    return {
+      brand: brandNames.includes(parsed.brand as BrandName) ? (parsed.brand as BrandName) : undefined,
+      mode: modes.includes(parsed.mode as Mode) ? (parsed.mode as Mode) : undefined,
+      followSystem: typeof parsed.followSystem === 'boolean' ? parsed.followSystem : undefined,
+    };
   } catch {
     return null;
   }

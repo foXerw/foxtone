@@ -107,6 +107,17 @@ describe('FoxThemeProvider + useTheme', () => {
     expect(screen.getByTestId('brand').textContent).toBe('ocean');
   });
 
+  it('损坏的 localStorage 值回退到默认主题', () => {
+    window.localStorage.setItem(
+      'test-theme',
+      JSON.stringify({ brand: 'nope', mode: 'sepia', followSystem: 'yes' }),
+    );
+    mount({ storageKey: 'test-theme' });
+    expect(screen.getByTestId('brand').textContent).toBe('foxtone');
+    expect(screen.getByTestId('mode').textContent).toBe('light');
+    expect(screen.getByTestId('follow').textContent).toBe('false');
+  });
+
   it('Provider 外使用 useTheme 抛错', () => {
     const spy = vi.spyOn(console, 'error').mockImplementation(() => {});
     render(
