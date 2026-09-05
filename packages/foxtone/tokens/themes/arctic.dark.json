@@ -16,10 +16,10 @@
       "strong": { "$value": "{primitive.color.gray.500}" }
     },
     "brand": {
-      "bg": { "$value": "{primitive.color.sky.500}" },
+      "bg": { "$value": "{primitive.color.cyan.500}" },
       "fg": { "$value": "{primitive.color.gray.0}" },
-      "hover": { "$value": "{primitive.color.sky.400}" },
-      "active": { "$value": "{primitive.color.sky.300}" }
+      "hover": { "$value": "{primitive.color.cyan.400}" },
+      "active": { "$value": "{primitive.color.cyan.300}" }
     },
     "state": {
       "success": {

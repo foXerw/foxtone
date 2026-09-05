@@ -1,7 +1,7 @@
 import { semanticColorTokens, useTokenValue } from 'foxtone-react';
 import tokensJson from 'foxtone/tokens.json';
 
-const PALETTES = ['orange', 'gray', 'green', 'amber', 'red', 'sky'] as const;
+const PALETTES = ['orange', 'gray', 'green', 'amber', 'red', 'sky', 'cyan', 'slate', 'yellow', 'sand', 'stone'] as const;
 
 /** 单个色卡的取值列：用 useTokenValue 实时读取 */
 function SwatchValue({ name }: { name: string }) {

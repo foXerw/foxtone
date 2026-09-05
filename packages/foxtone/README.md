@@ -8,7 +8,7 @@
 
 - 🎨 **分层令牌**：primitive（原始刻度）→ semantic（语义别名），W3C DTCG 标准 JSON 源文件
 - 🌗 **亮/暗模式**：每个主题一个预编译 CSS 文件，切换只需改一个 `data` 属性，零运行时成本
-- 🏷️ **多品牌主题**：内置 `foxtone`（狐狸橙）与 `ocean`（海蓝），新增品牌 = 新增一个语义 JSON
+- 🏷️ **狐狸物种主题**：内置 `foxtone`（火狐）、`arctic`（北极狐）、`silver`（银狐）、`fennec`（耳廓狐）、`corsac`（沙狐）、`grayfox`（灰狐）六套品牌 × 亮暗，新增物种 = 新增一个语义 JSON
 - 🎛️ **用户自定义**：`applyOverrides` 运行时覆盖 + `paletteFromColor` 从单色派生整套色阶
 - ⚛️ **TypeScript 优先**：主题名、令牌名全部类型化，拼错即报错
 - 🖼️ **在线画廊**：[foxtone demo 站](https://foxerw.github.io/foxtone/)（令牌可视化 + 主题切换 + 自定义实验室）

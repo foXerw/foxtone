@@ -19,9 +19,13 @@ describe('foxtone-react 导出面（需先运行 pnpm --filter foxtone-react bui
     for (const name of ['FoxThemeProvider', 'useTheme', 'useTokens', 'useTokenValue'] as const) {
       expect(typeof api[name], `${name} 应为函数`).toBe('function');
     }
-    expect(api.brandNames).toEqual(['foxtone', 'ocean']);
+    expect(api.brandNames).toEqual(['arctic', 'corsac', 'fennec', 'foxtone', 'grayfox', 'silver']);
     expect(api.modes).toEqual(['light', 'dark']);
-    expect(api.themeNames).toEqual(['foxtone-light', 'foxtone-dark', 'ocean-light', 'ocean-dark']);
+    expect(api.themeNames).toEqual([
+      'arctic-light', 'arctic-dark', 'corsac-light', 'corsac-dark',
+      'fennec-light', 'fennec-dark', 'foxtone-light', 'foxtone-dark',
+      'grayfox-light', 'grayfox-dark', 'silver-light', 'silver-dark',
+    ]);
     expect(api.semanticColorTokens.length).toBe(24);
     expect(api.tokens.color.bg.surface).toBe('var(--fox-color-bg-surface)');
   });

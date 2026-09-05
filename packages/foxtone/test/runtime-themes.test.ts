@@ -8,14 +8,14 @@ beforeEach(() => {
 
 describe('setTheme', () => {
   it('把 data-fox-theme 设为 品牌-模式', () => {
-    setTheme('ocean', 'dark');
-    expect(document.documentElement.getAttribute('data-fox-theme')).toBe('ocean-dark');
+    setTheme('arctic', 'dark');
+    expect(document.documentElement.getAttribute('data-fox-theme')).toBe('arctic-dark');
   });
 
   it('重复调用覆盖上一个主题', () => {
     setTheme('foxtone', 'light');
-    setTheme('ocean', 'dark');
-    expect(getTheme()).toBe('ocean-dark');
+    setTheme('arctic', 'dark');
+    expect(getTheme()).toBe('arctic-dark');
   });
 });
 

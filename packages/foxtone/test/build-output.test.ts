@@ -4,7 +4,14 @@ import { join } from 'node:path';
 
 const dist = join(import.meta.dirname, '..', 'dist');
 const cssThemesDir = join(dist, 'css', 'themes');
-const EXPECTED_THEMES = ['foxtone-light', 'foxtone-dark', 'ocean-light', 'ocean-dark'];
+const EXPECTED_THEMES = [
+  'arctic-light', 'arctic-dark',
+  'corsac-light', 'corsac-dark',
+  'fennec-light', 'fennec-dark',
+  'foxtone-light', 'foxtone-dark',
+  'grayfox-light', 'grayfox-dark',
+  'silver-light', 'silver-dark',
+];
 const STATE = ['success', 'warning', 'danger', 'info'];
 const SEMANTIC_TOKENS = [
   'color-bg-canvas', 'color-bg-surface', 'color-bg-raised',

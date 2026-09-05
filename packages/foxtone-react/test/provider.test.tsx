@@ -13,7 +13,7 @@ function Harness() {
       <span data-testid="brand">{brand}</span>
       <span data-testid="mode">{mode}</span>
       <span data-testid="follow">{String(followSystem)}</span>
-      <button onClick={() => setBrand('ocean')}>to-ocean</button>
+      <button onClick={() => setBrand('arctic')}>to-arctic</button>
       <button onClick={() => setMode('dark')}>to-dark</button>
       <button onClick={() => toggleMode()}>toggle</button>
       <button onClick={() => setFollowSystem(true)}>follow-on</button>
@@ -62,10 +62,10 @@ describe('FoxThemeProvider + useTheme', () => {
 
   it('setBrand/setMode 更新 data-fox-theme', () => {
     mount();
-    fireEvent.click(screen.getByText('to-ocean'));
+    fireEvent.click(screen.getByText('to-arctic'));
     fireEvent.click(screen.getByText('to-dark'));
-    expect(screen.getByTestId('themeName').textContent).toBe('ocean-dark');
-    expect(document.documentElement.getAttribute('data-fox-theme')).toBe('ocean-dark');
+    expect(screen.getByTestId('themeName').textContent).toBe('arctic-dark');
+    expect(document.documentElement.getAttribute('data-fox-theme')).toBe('arctic-dark');
   });
 
   it('toggleMode 在 light/dark 间切换', () => {
@@ -96,15 +96,15 @@ describe('FoxThemeProvider + useTheme', () => {
 
   it('传入 storageKey 时写回并恢复', () => {
     const { unmount } = mount({ storageKey: 'test-theme' });
-    fireEvent.click(screen.getByText('to-ocean'));
-    expect(JSON.parse(window.localStorage.getItem('test-theme')!)).toMatchObject({ brand: 'ocean' });
+    fireEvent.click(screen.getByText('to-arctic'));
+    expect(JSON.parse(window.localStorage.getItem('test-theme')!)).toMatchObject({ brand: 'arctic' });
     unmount();
     render(
       <FoxThemeProvider storageKey="test-theme">
         <Harness />
       </FoxThemeProvider>,
     );
-    expect(screen.getByTestId('brand').textContent).toBe('ocean');
+    expect(screen.getByTestId('brand').textContent).toBe('arctic');
   });
 
   it('损坏的 localStorage 值回退到默认主题', () => {

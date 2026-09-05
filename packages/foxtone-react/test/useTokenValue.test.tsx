@@ -49,7 +49,7 @@ describe('useTokenValue', () => {
       const { setBrand } = useTheme();
       return (
         <div>
-          <button onClick={() => setBrand('ocean')}>to-ocean</button>
+          <button onClick={() => setBrand('arctic')}>to-arctic</button>
           <Probe name="color-brand-bg" />
         </div>
       );
@@ -61,7 +61,7 @@ describe('useTokenValue', () => {
     );
     await waitFor(() => expect(screen.getByTestId('value').textContent).toBe('#ff0000'));
     const before = readCount;
-    fireEvent.click(screen.getByText('to-ocean'));
+    fireEvent.click(screen.getByText('to-arctic'));
     await waitFor(() => expect(readCount).toBeGreaterThan(before));
   });
 });
