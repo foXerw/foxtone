@@ -29,8 +29,22 @@
 
 ## 安装
 
+通过 GitHub Release 的 tarball 安装（当前未发布到 npm 官方）：
+
 ```bash
-npm install foxtone
+npm install https://github.com/foXerw/foxtone/releases/download/v0.1.0/foxtone-0.1.0.tgz
+npm install https://github.com/foXerw/foxtone/releases/download/v0.1.0/foxtone-react-0.1.0.tgz
+```
+
+或写进 `package.json`：
+
+```json
+{
+  "dependencies": {
+    "foxtone": "https://github.com/foXerw/foxtone/releases/download/v0.1.0/foxtone-0.1.0.tgz",
+    "foxtone-react": "https://github.com/foXerw/foxtone/releases/download/v0.1.0/foxtone-react-0.1.0.tgz"
+  }
+}
 ```
 
 ## 快速上手
@@ -91,6 +105,21 @@ pnpm build          # 构建令牌 + 运行时 + demo 站
 pnpm test           # 运行全部测试
 pnpm dev            # 构建令牌后启动 playground 开发服务器
 ```
+
+## 发布
+
+本项目通过 **GitHub Release** 分发（不上传 npm 官方）。发版流程：
+
+1. 版本号变化时，同步修改 `packages/foxtone/package.json` 与 `packages/foxtone-react/package.json` 的 `version`
+2. 打 tag 并推送，CI 自动构建、打包 tarball、发布 release：
+
+```bash
+git tag v0.1.1 && git push origin v0.1.1
+```
+
+- 每次 release 附 `foxtone-<版本>.tgz` 与 `foxtone-react-<版本>.tgz` 两个资产，供上方 tarball URL 安装
+- CI 会校验 tag（`vX.Y.Z`）与两个包的 `version` 一致，不一致则失败
+- release notes 由 CI 基于上次 tag 以来的提交自动生成
 
 ## 仓库结构
 

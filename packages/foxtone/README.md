@@ -28,8 +28,10 @@
 
 ## 安装
 
+通过 GitHub Release 的 tarball 安装（当前未发布到 npm 官方）：
+
 ```bash
-npm install foxtone
+npm install https://github.com/foXerw/foxtone/releases/download/v0.1.0/foxtone-0.1.0.tgz
 ```
 
 ## 快速上手
