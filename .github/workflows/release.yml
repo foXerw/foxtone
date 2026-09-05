@@ -20,6 +20,16 @@ jobs:
         with:
           node-version: 24
           cache: pnpm
+      - name: Verify tag matches package versions
+        run: |
+          TAG="${GITHUB_REF_NAME#v}"
+          FOX_VERSION="$(node -p "require('./packages/foxtone/package.json').version")"
+          REACT_VERSION="$(node -p "require('./packages/foxtone-react/package.json').version")"
+          if [ "$TAG" != "$FOX_VERSION" ] || [ "$TAG" != "$REACT_VERSION" ]; then
+            echo "::error::版本不一致：tag=v${TAG}，foxtone=${FOX_VERSION}，foxtone-react=${REACT_VERSION}"
+            exit 1
+          fi
+          echo "✓ tag v${TAG} 与 foxtone / foxtone-react 版本一致"
       - run: pnpm install --frozen-lockfile
       - run: pnpm build
       - name: Pack tarballs
