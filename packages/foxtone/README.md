@@ -13,6 +13,19 @@
 - ⚛️ **TypeScript 优先**：主题名、令牌名全部类型化，拼错即报错
 - 🖼️ **在线画廊**：[foxtone demo 站](https://foxerw.github.io/foxtone/)（令牌可视化 + 主题切换 + 自定义实验室）
 
+## 内置主题
+
+每个主题 = 一个「品牌 × 亮暗」对，切换只需改 `<html>` 的 `data-fox-theme`：
+
+| 品牌 | 物种 | 品牌色 | 主题名 |
+| --- | --- | --- | --- |
+| `foxtone` | 火狐 · 赤狐 | `#f97316` 橙 | `foxtone-light` / `foxtone-dark` |
+| `arctic` | 北极狐 | `#06b6d4` 冰青 | `arctic-light` / `arctic-dark` |
+| `silver` | 银狐 | `#64748b` 银灰 | `silver-light` / `silver-dark` |
+| `fennec` | 耳廓狐 | `#eab308` 沙金 | `fennec-light` / `fennec-dark` |
+| `corsac` | 沙狐 | `#b78f6e` 沙棕 | `corsac-light` / `corsac-dark` |
+| `grayfox` | 灰狐 | `#78716c` 灰棕 | `grayfox-light` / `grayfox-dark` |
+
 ## 安装
 
 ```bash
@@ -84,6 +97,10 @@ pnpm dev            # 构建令牌后启动 playground 开发服务器
 packages/foxtone    核心包（tokens/ 令牌源 · build/ 构建脚本 · src/ 运行时 API）
 apps/playground     demo 站（Vite + React，自身样式完全消费令牌）
 ```
+
+## 标准符合性
+
+令牌源遵循 [W3C DTCG](https://tr.designtokens.org/format/) 格式：primitive → semantic 分层、`{a.b.c}` 别名引用、颜色/间距/字号/圆角/字重/字族均带 `$type`。阴影与动效缓动以原始 CSS 字符串直通（未设 `$type`），这是直接产出 CSS 变量的务实取舍——如需严格 DTCG 复合值（`shadow`/`cubicBezier`）可在后续版本补齐。
 
 ## License
 
